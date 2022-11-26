@@ -26,8 +26,8 @@ export default function AllPassengers() {
   return (
     <div>
         <h1>All passengers</h1>
-        {passengers.map((passenger)=> {
-            return <p>{passenger.name}</p>
+        {passengers.map((passenger, index)=> {
+            return <p key={index}>{passenger.name}</p>
         })}
     </div>
     
