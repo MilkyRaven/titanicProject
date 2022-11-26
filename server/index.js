@@ -59,6 +59,25 @@ app.get("/passengers/female/class1/survived/amount", async (req, res) => {
     }
 })
 
+//get average age of first class females that survived
+app.get("/passengers/female/class1/survived/avg", async (req, res) => {
+    try {
+        const femalePassengers = await pool.query("SELECT AVG(age) FROM passengers WHERE sex LIKE 'female' AND pclass = 1 AND survived = true");
+        res.json(femalePassengers.rows);
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+//get age of oldest female that survived (any class)
+app.get("/passengers/female/survived/oldest", async (req, res) => {
+    try {
+        const femalePassengers = await pool.query("SELECT MAX(age) FROM passengers WHERE sex LIKE 'female' AND survived = true");
+        res.json(femalePassengers.rows);
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 
 app.listen(5000, () => {
