@@ -6,7 +6,7 @@ export default function AllPassengers() {
 
     const getPassengers = async() => {
         try {
-            const res = await fetch("http://localhost:5000/passengers");
+            const res = await fetch("http://localhost:5000/passengers/children");
             const dataJson = await res.json();
             //console.log(dataJson);
 
@@ -27,8 +27,9 @@ export default function AllPassengers() {
     <div>
         <h1>All passengers</h1>
         {passengers.map((passenger, index)=> {
-            return <p key={index}>{passenger.name}</p>
+            return <p key={index}>{passenger.name}, age: {passenger.age}</p>
         })}
+        <p>Number: {passengers.length}</p>
     </div>
     
   )
