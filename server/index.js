@@ -9,11 +9,51 @@ app.use(express.json());
 
 //ROUTES SECTION //
 
-//get all passengers names
+//get all passengers
 app.get("/passengers", async (req, res) => {
     try {
         const allPassengers = await pool.query("SELECT * FROM passengers");
         res.json(allPassengers.rows);
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+//get all first class female passengers
+app.get("/passengers/female/class1", async (req, res) => {
+    try {
+        const femalePassengers = await pool.query("SELECT * FROM passengers WHERE sex LIKE 'female' AND pclass = 1");
+        res.json(femalePassengers.rows);
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+//get number of all first class female passengers
+app.get("/passengers/female/class1/amount", async (req, res) => {
+    try {
+        const femalePassengers = await pool.query("SELECT COUNT (*) FROM passengers WHERE sex LIKE 'female' AND pclass = 1");
+        res.json(femalePassengers.rows);
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+//get all first class female passengers that survived
+app.get("/passengers/female/class1/survived", async (req, res) => {
+    try {
+        const femalePassengers = await pool.query("SELECT * FROM passengers WHERE sex LIKE 'female' AND pclass = 1 AND survived = true");
+        res.json(femalePassengers.rows);
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+//get number of all first class female passengers that survived
+app.get("/passengers/female/class1/survived/amount", async (req, res) => {
+    try {
+        const femalePassengers = await pool.query("SELECT COUNT (*) FROM passengers WHERE sex LIKE 'female' AND pclass = 1 AND survived = true");
+        res.json(femalePassengers.rows);
     } catch (error) {
         console.log(error)
     }
