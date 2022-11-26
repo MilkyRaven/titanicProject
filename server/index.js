@@ -5,7 +5,7 @@ const pool = require("./db")
 
 //middleware
 app.use(cors());
-app.use(express.json()); //may not need this
+app.use(express.json());
 
 //ROUTES SECTION //
 
