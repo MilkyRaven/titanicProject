@@ -49,7 +49,7 @@ app.get("/passengers/children/class2", async (req, res) => {
     }
 })
 
-//get all third class children female passengers
+//get all third class children  passengers
 app.get("/passengers/children/class3", async (req, res) => {
     try {
         const femalePassengers = await pool.query("SELECT * FROM passengers WHERE age < 12 AND pclass = 3");
@@ -63,6 +63,16 @@ app.get("/passengers/children/class3", async (req, res) => {
 app.get("/passengers/children/survived", async (req, res) => {
     try {
         const femalePassengers = await pool.query("SELECT * FROM passengers WHERE age < 12 AND survived = true");
+        res.json(femalePassengers.rows);
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+//group 3 class children that died, by home and destination
+app.get("/passengers/children/died/nofamily", async (req, res) => {
+    try {
+        const femalePassengers = await pool.query("SELECT * FROM passengers WHERE age < 12 AND survived = false AND parch = 0 AND sibsp = 0");
         res.json(femalePassengers.rows);
     } catch (error) {
         console.log(error)

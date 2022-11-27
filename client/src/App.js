@@ -6,6 +6,7 @@ import AllPassengers from './components/AllPassengers';
 import AllChildren from './components/AllChildren';
 import ChildrenByClass from './components/ChildrenByClass';
 import SurvivalComparison from './components/SurvivalComparison';
+import NoFamily from './components/NoFamily';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <AllChildren />
       <ChildrenByClass />
       <SurvivalComparison />
+      <NoFamily />
       <AllPassengers />
     </div>
   );
