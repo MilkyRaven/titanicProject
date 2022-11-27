@@ -1,5 +1,6 @@
+import '../App.css';
 import React from 'react';
-import { PieChart, Pie, Cell} from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 import { useEffect, useState } from 'react';
 
 export default function AllChildren() {
@@ -51,31 +52,30 @@ export default function AllChildren() {
     ];
 
     return (
-        <div>
-            <div>
-                <p>Total number of children: {allChildrenNumber}</p>
-                <p>Survived: {survivedTrue.length} </p>
-                <p>Died: {survivedFalse.length} </p>
+        <div className='firstPie'>
+            <div className='firstPie-text'>
+                <p><strong>Total number of children</strong> {allChildrenNumber}</p>
+                <p> <strong id='colorBlue'>Survived</strong>: {survivedTrue.length} </p>
+                <p><strong id='colorGreen'>Died</strong>: {survivedFalse.length} </p>
             </div>
-            <h3>As a percentage</h3>
             <PieChart width={800} height={400}>
-        <Pie
-          data={data}
-          cx={420}
-          cy={200}
-          startAngle={180}
-          endAngle={0}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
+                <Pie
+                    data={data}
+                    cx={400}
+                    cy={290}
+                    startAngle={180}
+                    endAngle={0}
+                    innerRadius={60}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    paddingAngle={5}
+                    dataKey="value"
+                >
+                    {data.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                </Pie>
+            </PieChart>
         </div>
     )
 }
