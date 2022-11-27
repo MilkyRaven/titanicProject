@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PieChart, Pie, Sector, Cell} from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 
 export default function ChildrenByClass() {
 
@@ -21,7 +21,7 @@ export default function ChildrenByClass() {
         getPassengers();
     }, []);
 
-    //console.log(passengers)
+    //filtering children by class
 
     const classOne = [];
     const classTwo = [];
@@ -37,17 +37,12 @@ export default function ChildrenByClass() {
         }
     })
 
-    // //percentages
-    // const percentageFirstClass = Math.round((classOne.length / passengers.length) * 100);
-    // const percentageSecondClass = Math.round((classOne.length / passengers.length) * 100);
-    // const percentageThirdClass = Math.round((classOne.length / passengers.length) * 100);
-
-    //piechart
+    //piechart with the data
 
     const data = [
-        { name: 'First Class', value: classOne.length},
-        { name: 'Second Class', value: classTwo.length},
-        { name: 'Third Class', value: classThree.length},
+        { name: 'First Class', value: classOne.length },
+        { name: 'Second Class', value: classTwo.length },
+        { name: 'Third Class', value: classThree.length },
     ];
 
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
@@ -59,36 +54,36 @@ export default function ChildrenByClass() {
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
         return (
             <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-              {`${(percent * 100).toFixed(0)}%`}
+                {`${(percent * 100).toFixed(0)}%`}
             </text>
-          );
-        };
+        );
+    };
 
 
-        return (
-            <div>ChildrenByClass
-                <div>
-                    <p>Number of children in first class: {classOne.length}</p>
-                    <p>Number of children in second class: {classTwo.length}</p>
-                    <p>Number of children in third class: {classThree.length}</p>
-                </div>
-                <h3>Percentages by class</h3>
-                <PieChart width={400} height={400}>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            label={renderCustomizedLabel}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-        </PieChart>
+    return (
+        <div>ChildrenByClass
+            <div>
+                <p>Number of children in first class: {classOne.length}</p>
+                <p>Number of children in second class: {classTwo.length}</p>
+                <p>Number of children in third class: {classThree.length}</p>
             </div>
-        )
-    }
+            <h3>Percentages by class</h3>
+            <PieChart width={400} height={400}>
+                <Pie
+                    data={data}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    label={renderCustomizedLabel}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    dataKey="value"
+                >
+                    {data.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                </Pie>
+            </PieChart>
+        </div>
+    )
+}

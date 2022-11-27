@@ -1,8 +1,8 @@
 import './App.css';
-import Intro from './components/Intro';
-import AllPassengers from './components/AllPassengers';
 
 //components
+import Intro from './components/Intro';
+import ChildrenPassengers from './components/ChildrenPassengers';
 import AllChildren from './components/AllChildren';
 import ChildrenByClass from './components/ChildrenByClass';
 import SurvivalComparison from './components/SurvivalComparison';
@@ -16,7 +16,7 @@ function App() {
       <ChildrenByClass />
       <SurvivalComparison />
       <NoFamily />
-      <AllPassengers />
+      <ChildrenPassengers />
     </div>
   );
 }

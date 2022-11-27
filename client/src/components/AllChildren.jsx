@@ -10,7 +10,6 @@ export default function AllChildren() {
         try {
             const res = await fetch("http://localhost:5000/passengers/children");
             const dataJson = await res.json();
-            //console.log(dataJson);
 
             setPassengers(dataJson);
 
@@ -23,12 +22,12 @@ export default function AllChildren() {
         getPassengers();
     }, []);
 
+    //filtering the data
+
     const survivedTrue = []
     const survivedFalse = [];
     const allChildrenNumber = passengers.length;
 
-
-    //filtering data
     passengers.forEach((children) => {
         if (children.survived === false) {
             return survivedFalse.push(children);
@@ -37,7 +36,7 @@ export default function AllChildren() {
         }
     })
 
-    //percentages
+    //preparing percentages to use with the piechart
     const percentageSurvived = Math.round((survivedTrue.length / allChildrenNumber) * 100);
     const percentageDied = Math.round((survivedFalse.length / allChildrenNumber) * 100);
 
