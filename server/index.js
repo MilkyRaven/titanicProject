@@ -7,6 +7,7 @@ const pool = require("./db")
 app.use(cors());
 app.use(express.json());
 
+
 //ROUTES SECTION //
 
 //passengers under 12 years old 
@@ -19,61 +20,11 @@ app.get("/passengers/children", async (req, res) => {
     }
 })
 
-//passengers under 12 years old that survived
-app.get("/passengers/children/survived", async (req, res) => {
-    try {
-        const passengers = await pool.query("SELECT * FROM passengers WHERE age < 12 AND survived = true ORDER BY age DESC");
-        res.json(passengers.rows);
-    } catch (error) {
-        console.log(error)
-    }
-})
-
-//get all first class children passengers
-app.get("/passengers/children/class1", async (req, res) => {
-    try {
-        const passengers = await pool.query("SELECT * FROM passengers WHERE age < 12 AND pclass = 1");
-        res.json(passengers.rows);
-    } catch (error) {
-        console.log(error)
-    }
-})
-
-//get all second class children passengers
-app.get("/passengers/children/class2", async (req, res) => {
-    try {
-        const femalePassengers = await pool.query("SELECT * FROM passengers WHERE age < 12 AND pclass = 2");
-        res.json(femalePassengers.rows);
-    } catch (error) {
-        console.log(error)
-    }
-})
-
-//get all third class children  passengers
-app.get("/passengers/children/class3", async (req, res) => {
-    try {
-        const femalePassengers = await pool.query("SELECT * FROM passengers WHERE age < 12 AND pclass = 3");
-        res.json(femalePassengers.rows);
-    } catch (error) {
-        console.log(error)
-    }
-})
-
-//get all children that survived
-app.get("/passengers/children/survived", async (req, res) => {
-    try {
-        const femalePassengers = await pool.query("SELECT * FROM passengers WHERE age < 12 AND survived = true");
-        res.json(femalePassengers.rows);
-    } catch (error) {
-        console.log(error)
-    }
-})
-
-//group 3 class children that died, by home and destination
+//find all children that traveled without family and died
 app.get("/passengers/children/died/nofamily", async (req, res) => {
     try {
-        const femalePassengers = await pool.query("SELECT * FROM passengers WHERE age < 12 AND survived = false AND parch = 0 AND sibsp = 0");
-        res.json(femalePassengers.rows);
+        const passengers = await pool.query("SELECT * FROM passengers WHERE age < 12 AND survived = false AND parch = 0 AND sibsp = 0 ");
+        res.json(passengers.rows);
     } catch (error) {
         console.log(error)
     }
