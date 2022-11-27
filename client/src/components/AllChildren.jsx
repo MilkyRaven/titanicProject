@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart, Pie, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell} from 'recharts';
 import { useEffect, useState } from 'react';
 
 export default function AllChildren() {
@@ -40,8 +40,12 @@ export default function AllChildren() {
     const percentageSurvived = Math.round((survivedTrue.length / allChildrenNumber) * 100);
     const percentageDied = Math.round((survivedFalse.length / allChildrenNumber) * 100);
 
+    //piechart
 
-    const data01 = [
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+
+    const data = [
         { name: '% of children that survived', value: percentageSurvived },
         { name: '% of children that died', value: percentageDied }
     ];
@@ -54,19 +58,24 @@ export default function AllChildren() {
                 <p>Died: {survivedFalse.length} </p>
             </div>
             <h3>As a percentage</h3>
-            <PieChart width={400} height={400}>
-                <Pie
-                    dataKey="value"
-                    isAnimationActive={false}
-                    data={data01}
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={80}
-                    fill="#65b0bf"
-                    label
-                />
-                <Tooltip />
-            </PieChart>
+            <PieChart width={800} height={400}>
+        <Pie
+          data={data}
+          cx={420}
+          cy={200}
+          startAngle={180}
+          endAngle={0}
+          innerRadius={60}
+          outerRadius={80}
+          fill="#8884d8"
+          paddingAngle={5}
+          dataKey="value"
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+      </PieChart>
         </div>
     )
 }
