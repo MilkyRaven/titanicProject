@@ -3,9 +3,9 @@ import Intro from './components/Intro';
 import AllPassengers from './components/AllPassengers';
 
 //components
-import TestChart from './components/TestChart';
 import AllChildren from './components/AllChildren';
 import ChildrenByClass from './components/ChildrenByClass';
+import SurvivalComparison from './components/SurvivalComparison';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Intro />
       <AllChildren />
       <ChildrenByClass />
-      <TestChart />
+      <SurvivalComparison />
       <AllPassengers />
     </div>
   );
