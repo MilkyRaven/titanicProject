@@ -7,7 +7,7 @@ export default function TestChart() {
   
   const getPassengers = async() => {
     try {
-        const res = await fetch("http://localhost:5000/passengers/female/class1/survived");
+        const res = await fetch("http://localhost:5000/passengers/class1/survived");
         const dataJson = await res.json();
         console.log(dataJson);
 
@@ -21,7 +21,7 @@ export default function TestChart() {
 useEffect(()=> {
     getPassengers(); 
 }, []);
-console.log(data)
+//console.log(data)
 
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];

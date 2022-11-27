@@ -21,15 +21,15 @@ export default function AllPassengers() {
         getPassengers(); 
     }, []);
 
-    console.log(passengers);
+    //console.log(passengers);
 
   return (
     <div>
-        <h1>All passengers</h1>
+        <h1>All Children Passengers</h1>
+        <p>Number of children passengers: {passengers.length}</p>
         {passengers.map((passenger, index)=> {
             return <p key={index}>{passenger.name}, age: {passenger.age}</p>
         })}
-        <p>Number: {passengers.length}</p>
     </div>
     
   )
