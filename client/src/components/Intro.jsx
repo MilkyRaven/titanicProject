@@ -7,6 +7,7 @@ export default function Intro() {
   return (
     <div>
       <h1> The Children at Titanic</h1>
+      <h2>Little Infographic</h2>
       <div>
         <div className='intro-text'>
           <img id='titanic-img' alt="The Titanic Ship" width={500} src='https://cdn.britannica.com/79/4679-050-BC127236/Titanic.jpg'></img>

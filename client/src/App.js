@@ -15,6 +15,7 @@ function App() {
       <ChildrenByClass />
       <h2>Survival Comparison</h2>
       <SurvivalComparison />
+      <h2>Children who died on Titanic with no family onboard</h2>
       <NoFamily />
       <ChildrenPassengers />
     </div>

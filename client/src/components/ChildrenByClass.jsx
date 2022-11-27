@@ -62,14 +62,24 @@ export default function ChildrenByClass() {
 
 
     return (
-        <div>ChildrenByClass
-            <div>
-                <p>Number of children in first class: {classOne.length}</p>
-                <p>Number of children in second class: {classTwo.length}</p>
-                <p>Number of children in third class: {classThree.length}</p>
+        <div>
+            <div className='byClass-data'>
+                <table className='byClass-table'>
+                    <tbody>
+                        <tr>
+                            <td>Number of children in <strong>first class</strong></td>
+                            <td>Number of children in <strong>second class</strong></td>
+                            <td>Number of children in <strong>third class</strong></td>
+                        </tr>
+                        <tr>
+                            <td id='class1'>{classOne.length}</td>
+                            <td id='class2'>{classTwo.length}</td>
+                            <td id='class3'>{classThree.length}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <h3>Percentages by class</h3>
-            <PieChart width={400} height={400}>
+            <PieChart className='pie' width={400} height={400}>
                 <Pie
                     data={data}
                     cx="50%"

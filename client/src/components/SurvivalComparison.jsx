@@ -77,7 +77,7 @@ export default function SurvivalComparison() {
     ];
 
     return (
-        <div>SurvivalComparison
+        <div>
             <BarChart
                 width={500}
                 height={300}
@@ -94,8 +94,8 @@ export default function SurvivalComparison() {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="total" fill="#8884d8" />
-                <Bar dataKey="survived" fill="#82ca9d" />
+                <Bar dataKey="total" fill="#0088fe" />
+                <Bar dataKey="survived" fill="#00C49F" />
             </BarChart>
         </div>
     )

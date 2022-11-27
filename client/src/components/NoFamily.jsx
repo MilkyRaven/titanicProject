@@ -24,12 +24,25 @@ export default function NoFamily() {
 
 
     return (
-        <div>No Family
+        <div>
             {passengers.map((children, index) => {
                 return <div key={index}>
-                    <p>Name: {children.name}</p>
-                    <p>Age: {children.age}</p>
-                    <p>Class: {children.pclass}</p>
+                    <table className='noFamily-table'>
+                        <tbody>
+                            <tr className='table-section'>
+                                <td>Name</td>
+                                <td>Age</td>
+                                <td>Passenger Class</td>
+                                <td>Ticket</td>
+                            </tr>
+                            <tr>
+                                <td>{children.name}</td>
+                                <td>{children.age}</td>
+                                <td>{children.pclass}</td>
+                                <td>{children.ticket}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             })}
         </div>

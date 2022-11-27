@@ -16,6 +16,12 @@ h2 {
   margin: 100px;
   text-align: center;
 }
+h3 {
+  font-size: 1.5em;
+  text-align: center;
+  color:#77797a;
+  margin-bottom: 30px;
+}
 .intro-text {
 display: flex;
 flex-flow: row;
@@ -46,4 +52,62 @@ margin: 20px;
 }
 #colorGreen {
   color: #00C49F;
+}
+.byClass-data {
+  font-size: 1.3em;
+}
+
+/* TABLE STYLES */
+
+.byClass-table {
+  text-align: center;
+}
+.byClass-table > p {
+  background-color: white;
+  padding: 10px;
+}
+#class1 {
+  background-color: #0088fe;
+  color: white;
+  font-size: 1.5em;
+}
+#class2 {
+  background-color: #00C49F;
+  color: white;
+  font-size: 1.5em;
+}
+#class3 {
+  background-color: #FFBB27;
+  color: white;
+  font-size: 1.5em;
+}
+th, td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+  
+}
+.noFamily-table {
+  border: 1px solid;
+  border-radius: 20px;
+  border-color: #10518a;
+  text-align: center;
+}
+.table-section {
+  font-size: 1.4em;
+  font-weight:600;
+}
+.allChildren-table {
+border: 1px solid;
+border-color: #10518a;
+border-radius: 20px;
+}
+.allChildren-table tr:nth-child(even) {
+  background-color:#cddff0;
+}
+/* END TABLE STYLES */
+
+.pie {
+  font-size: 1.5em;
 }
