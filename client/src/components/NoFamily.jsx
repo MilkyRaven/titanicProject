@@ -22,9 +22,9 @@ export default function NoFamily() {
 
 
   return (
-    <div>NoFamily
-        {passengers.map((children)=> {
-            return <div> <p>Name: {children.name}</p>
+    <div>No Family
+        {passengers.map((children, index)=> {
+            return <div key={index}> <p>Name: {children.name}</p>
              <p>Age: {children.age}</p>
              <p>Class: {children.pclass}</p>
              {/* <p>Body: {children.body}</p> set so when null, says that body never found */}
